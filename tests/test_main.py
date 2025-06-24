@@ -14,7 +14,7 @@ def test_redirect_url():
     short_url = response.json()["short_url"]
     short_id = short_url.rsplit("/", 1)[-1]
 
-    response = client.get(f"/{short_id}", allow_redirects=False)
+    response = client.get(f"/{short_id}")
     assert response.status_code == 307
     assert response.headers["location"] == "https://example.com"
 
